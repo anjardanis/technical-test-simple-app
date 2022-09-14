@@ -1,4 +1,4 @@
-name: Build
+name: Sonarcloud Cove Coverage
 on:
   push:
     branches:
@@ -23,9 +23,9 @@ jobs:
         run: |
               npm install
               npm run report
-              GITHUB_WORKSPACE
+              echo $GITHUB_WORKSPACE
               # fix the paths
-              sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage/lcov.info
+              sed -i 's@'SF:$GITHUB_WORKSPACE'@/SF:/@g' coverage/lcov.info
               cat coverage/lcov.info
 
       - name: SonarCloud Scan

@@ -14,15 +14,15 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-     - name: Use Node.js 14
-       uses: actions/setup-node@v1
-       with:
-         node-version: 14
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
 
-     - name: Running Test
-       run: |
-            npm install
-            npm test
+      - name: Running Test
+        run: |
+              npm install
+              npm test
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

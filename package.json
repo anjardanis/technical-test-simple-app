@@ -4,7 +4,7 @@
   "description": "A Simple node js based web app involving a CI pipeline and testing",
   "main": "app.js",
   "directories": {
-    "test": "NODE_ENV=test nyc --reporter=html --reporter=lcov mocha --timeout 60000 --recursive --exit"
+    "test": "test"
   },
   "scripts": {
     "test": "mocha",

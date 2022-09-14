@@ -22,7 +22,11 @@ jobs:
       - name: Running Test
         run: |
               npm install
-              npm test
+              npm run report
+              GITHUB_WORKSPACE
+              # fix the paths
+              sed -i 's@'$GITHUB_WORKSPACE'@/github/workspace/@g' coverage/lcov.info
+              cat coverage/lcov.info
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

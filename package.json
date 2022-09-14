@@ -4,7 +4,7 @@
   "description": "A Simple node js based web app involving a CI pipeline and testing",
   "main": "app.js",
   "directories": {
-    "test": "test"
+    "test": "NODE_ENV=test nyc --reporter=html --reporter=lcov mocha --timeout 60000 --recursive --exit"
   },
   "scripts": {
     "test": "mocha",
@@ -39,6 +39,10 @@
   },
   "devDependencies": {
     "eslint": "^5.16.0",
-    "eslint-plugin-node": "^8.0.1"
+    "eslint-plugin-node": "^8.0.1",
+    "@istanbuljs/nyc-config-typescript": "^0.1.3",
+    "@types/mocha": "^5.2.7",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.1"
   }
 }

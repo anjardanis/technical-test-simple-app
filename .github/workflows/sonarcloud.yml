@@ -23,10 +23,8 @@ jobs:
         run: |
               npm install
               npm run report
-              echo $GITHUB_WORKSPACE
-              cat coverage/lcov.info
               # fix the paths
-              sed -i 's@SF:simple-app/@/SF:/@g' coverage/lcov.info
+              sed -i 's@SF:simple-app/@/SF:@g' coverage/lcov.info
               cat coverage/lcov.info
 
       - name: SonarCloud Scan

@@ -16,7 +16,12 @@ jobs:
 
       - name: SSH to Server and Deploy
         env:
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          password: ${{ secrets.SSH_PASSWORD }}
         run: |
           sudo apt-get install sshpass
-          sshpass -p $password ssh -o 'StrictHostKeyChecking no' root@194.233.80.62 "echo anjar"
+          sshpass -p $password ssh -o 'StrictHostKeyChecking no' root@194.233.80.62 "procNoN=`docker images | grep stealth` && if [[ $procNoN ]]; then docker rmi -f anjardanis/stealth-test:latest; fi"
+          sshpass -p $password ssh -o 'StrictHostKeyChecking no' root@194.233.80.62 "procNo=`docker ps | grep stealth` && if [[ $procNo ]]; then docker stop stealth && docker rm stealth; fi"
+          sshpass -p $password ssh -o 'StrictHostKeyChecking no' root@194.233.80.62 "docker pull anjardanis/stealth-test:latest"
+          sshpass -p $password ssh -o 'StrictHostKeyChecking no' root@194.233.80.62 "docker run --name stealth -dit -p 8000:8000 anjardanis/stealth-test:latest"
+
+

@@ -13,7 +13,7 @@ describe('Testing response from path: / ', function () {
       chai.request(app)
         .get('/')
         .end(function (err, res) {
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(400);
           expect(err).to.be.null;
           done();
         });

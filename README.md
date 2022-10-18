@@ -1,4 +1,4 @@
-# Simple-App
+# Simple-App V2
 Clone from
 ```
 https://github.com/Mattible/Simple-App
